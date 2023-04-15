@@ -1,0 +1,30 @@
+---
+
+name: e2e
+
+on: [push]
+
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.4.0
+
+      - uses: actions/setup-python@v4.5.0
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: install cypress
+        run: npm ci
+
+      - name: run cypress tests
+        run: |
+          python -mhttp.server&
+          npx cypress run
+
+...
