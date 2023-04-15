@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="static/jquery.min.js"></script>
+  </head>
+  <body>
+   <form>
+     <fieldset>
+       <label for="field1">Label</label>
+       <div>
+         <input type="text" id="field1" list="field1-suggestions">
+         </input>
+         <script>
+           $('#field1').on('input', (e) => {
+             $.ajax({
+               url: '/static/data.json',
+               success: (result) => {
+                 $('#field1-suggestions').empty()
+                 result.forEach((result) => {
+                   $('<option/>').text(result).attr('value', result).attr('label', result).appendTo(
+                     $('#field1-suggestions')
+                   )
+                 })
+               }
+             })
+           })
+         </script>
+         <datalist id="field1-suggestions">
+           <option value="foo" label="bar">foobar</option>
+         </datalist>
+       </div>
+     </fieldset> 
+   </form>
+  </body>
+</html>
