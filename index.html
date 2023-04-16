@@ -6,10 +6,9 @@
   <body>
    <form>
      <fieldset>
-       <label for="field1">Label</label>
+       <label for="field1">Field with AJAX-based content assist</label>
        <div>
-         <input type="text" id="field1" list="field1-suggestions">
-         </input>
+         <input type="text" id="field1" list="field1-suggestions"/>
          <script>
            $('#field1').on('input', (e) => {
              $.ajax({
@@ -29,7 +28,19 @@
            <option value="foo" label="bar">foobar</option>
          </datalist>
        </div>
-     </fieldset> 
+     </fieldset>
+
+     <fieldset>
+       <label for="field2">Field with pre-populated datalist</label>
+       <div>
+         <input type="text" id="field2" list="field2-suggestions"/>
+         <datalist id="field2-suggestions">
+           <option value="lol" label="lol">lol</option>
+           <option value="lolol" label="lolol">lolol</option>
+           <option value="lololol" label="lololol">lololol</option>
+         </datalist>
+       </div>
+     </fieldset>
    </form>
   </body>
 </html>
