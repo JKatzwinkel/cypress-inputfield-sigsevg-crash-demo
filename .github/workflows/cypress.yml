@@ -22,9 +22,15 @@ jobs:
       - name: install cypress
         run: npm ci
 
+      - name: start webserver
+        run: python -mhttp.server&
+
+      - name: run tests against chrome
+        run: >
+          docker run -v `pwd`:/e2e -w /e2e --network=host cypress/included:12.9.0
+          cypress run --browser chrome
+
       - name: run cypress tests
-        run: |
-          python -mhttp.server&
-          npx cypress run
+        run: npx cypress run
 
 ...
