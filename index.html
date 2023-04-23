@@ -6,22 +6,14 @@
   <body>
    <form>
      <fieldset>
-       <label for="field1">Field with AJAX-based content assist</label>
+       <label for="field1">Field with procedural content assist</label>
        <div>
          <input type="text" id="field1" list="field1-suggestions"/>
          <script>
            $('#field1').on('input', (e) => {
-             $.ajax({
-               url: '/static/data.json',
-               success: (result) => {
-                 $('#field1-suggestions').empty()
-                 result.forEach((result) => {
-                   $('<option/>').text(result).attr('value', result).attr('label', result).appendTo(
-                     $('#field1-suggestions')
-                   )
-                 })
-               }
-             })
+             $('<option/>').text('foobar').attr('value', 'foobar').attr('label', 'baz').appendTo(
+               $('#field1-suggestions')
+             )
            })
          </script>
          <datalist id="field1-suggestions">
