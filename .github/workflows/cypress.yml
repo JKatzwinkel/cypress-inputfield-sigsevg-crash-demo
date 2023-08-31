@@ -2,7 +2,7 @@
 
 name: e2e
 
-on: [push]
+'on': [push]
 
 
 jobs:
@@ -27,13 +27,13 @@ jobs:
 
       - name: run tests against chrome
         run: >
-          docker run -v `pwd`:/e2e -w /e2e --network=host cypress/included:12.17.0
-          cypress run --browser chrome
+          docker run -v `pwd`:/e2e -w /e2e --network=host
+          cypress/included:13.0.0 cypress run --browser chrome
 
       - name: run tests against firefox
         run: >
-          docker run -v `pwd`:/e2e -w /e2e --network=host cypress/included:12.17.0
-          cypress run --browser firefox
+          docker run -v `pwd`:/e2e -w /e2e --network=host
+          cypress/included:13.0.0 cypress run --browser firefox
 
       - name: run tests against electron
         run: npx cypress run
