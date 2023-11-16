@@ -11,4 +11,11 @@ updates:
     reviewers:
       - jkatzwinkel
 
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    reviewers:
+      - jkatzwinkel
+
 ...
