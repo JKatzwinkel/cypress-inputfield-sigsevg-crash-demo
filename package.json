@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "cypress": "^13.16.0",
+    "cypress": "^14.0.1",
     "eslint-plugin-cypress": "^2.13.2"
   },
   "type": "module"
